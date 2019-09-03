@@ -1655,8 +1655,8 @@ _IO_CONSOLE_PRINTF( "FLOWCTL-SEL.POST2\t[Side=%d][Pt=%d][mode=%d][OrgRunPt=%d]-[
 //					Remove_Inf_Dummy_PostWait( dummyparam ); // 2009.09.23
 					if ( res != -1 ) Remove_Inf_Dummy_PostWait( dummyparam ); // 2009.09.23
 				}
-//------------------------------------------------------------------------------------------------------------------
-_IO_CONSOLE_PRINTF( "FLOWCTL-SEL.POST3\t[Side=%d][Pt=%d][mode=%d][OrgRunPt=%d]-[checkch=PM%d][checkorder=%d][Param=%d][dm=%d][%s][Res=%d]\n" , side , pointer , _i_SCH_CLUSTER_Get_PathRun( side , pointer , 14 , 2 ) , m , checkch - PM1 + 1 , checkorder , Inf_Dummy_PostWait_Value[dummyparam] , dummymode , STR_MEM_GET_STR( Inf_Dummy_PostWait_Name[dummyparam] ) , res );
+//negativeIndex 1643 Line dummyparam == -1 : Inf_Dummy_PostWait_Value[dummyparam] => Array index -1 is out of bounds
+//_IO_CONSOLE_PRINTF( "FLOWCTL-SEL.POST3\t[Side=%d][Pt=%d][mode=%d][OrgRunPt=%d]-[checkch=PM%d][checkorder=%d][Param=%d][dm=%d][%s][Res=%d]\n" , side , pointer , _i_SCH_CLUSTER_Get_PathRun( side , pointer , 14 , 2 ) , m , checkch - PM1 + 1 , checkorder , Inf_Dummy_PostWait_Value[dummyparam] , dummymode , STR_MEM_GET_STR( Inf_Dummy_PostWait_Name[dummyparam] ) , res );
 //------------------------------------------------------------------------------------------------------------------
 				//
 				if ( res == -1 ) return 1;
