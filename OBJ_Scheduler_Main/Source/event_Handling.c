@@ -304,11 +304,15 @@ void SYSTEM_LOG_TAG_MONITOR( int data ) {
 //---------------------------------------------------------------------------------------
 int Get_LOT_ID_From_String( char *mdata , BOOL idalso ) {
 	int i;
-	if      ( STRNCMP_L( mdata , "PORT" , 4 ) ) {
+	char sArr[256] = { 0 };
+
+	strncpy(sArr, mdata, 255);
+
+	if      ( STRNCMP_L(sArr, "PORT" , 4 ) ) {
 		i = atoi( mdata + 4 ) - 1;
 		if ( ( i < 0 ) || ( i >= MAX_CASSETTE_SIDE ) ) i = -1;
 	}
-	else if ( STRNCMP_L( mdata , "CM" , 2 ) ) {
+	else if ( STRNCMP_L(sArr, "CM" , 2 ) ) {
 		i = atoi( mdata + 2 ) - 1;
 		if ( ( i < 0 ) || ( i >= MAX_CASSETTE_SIDE ) ) i = -1;
 	}
